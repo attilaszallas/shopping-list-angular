@@ -1,0 +1,17 @@
+<div class="container">
+  
+    <ul class="products">
+      <li class="product-item" *ngFor="let product of getFilteredProducts()">
+        <div class="product">
+          <div class="product-details">
+            <div class="product-info">
+              <div class="name">{{ product?.name }}</div>
+            </div>
+          </div>
+          <div class="price">
+            <button class="cta">Done</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
