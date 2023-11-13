@@ -1,5 +1,16 @@
 <div class="container">
-  
+  <div class="product">
+    <div class="product-details">
+      <div class="product-info">
+        <div class="name">Patty</div>
+      </div>
+      <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
+
+    </div>
+    <div class="price">
+      <button class="cta">Done</button>
+    </div>
+  </div>
     <ul class="products">
       <li class="product-item" *ngFor="let product of getFilteredProducts()">
         <div class="product">
