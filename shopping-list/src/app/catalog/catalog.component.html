@@ -1,22 +1,17 @@
 <div class="container">
-  <div class="product">
-    <div class="product-details">
-      <div class="product-info">
-        <div class="name">Patty</div>
-      </div>
-      <input type="text" id="name" name="name" required minlength="4" maxlength="8" size="10" />
 
-    </div>
-    <div class="price">
-      <button class="cta">Done</button>
-    </div>
+  <div class="product"> 
+  <!-- Input field -->
+  <input type="text" id="course" name="course" class="form-control" [(ngModel)]="newCourse">
+  <!-- Add button -->
+  <button (click)="addCourse()">Add</button>
   </div>
     <ul class="products">
-      <li class="product-item" *ngFor="let product of getFilteredProducts()">
+      <li class="product-item" *ngFor="let product of products">
         <div class="product">
           <div class="product-details">
             <div class="product-info">
-              <div class="name">{{ product?.name }}</div>
+              <div class="name">{{ product }}</div>
             </div>
           </div>
           <div class="price">

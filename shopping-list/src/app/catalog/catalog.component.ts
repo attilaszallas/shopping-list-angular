@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProduct } from './product.model';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'bot-catalog',
@@ -7,37 +7,18 @@ import { IProduct } from './product.model';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
-  products: IProduct[];
+  products: string[];
   filter: string = '';
+  newCourse : string = '';
 
   constructor() {
-    this.products = [
-      {
-        id: 1,
-        name: "Paprika",
-        imageName: "head-big-eye.png",
-        category: "zöldség",
-        quantity: 1,
-        isDone: false,
-      },
-      {
-        id: 17,
-        name: "Zab",
-        imageName: "base-spring.png",
-        category: "zöldség",
-        quantity: 1,
-        isDone: true,
-      },
-    ];
+    this.products = [];
   }
 
-  getImageUrl(product: IProduct) {
-    return '/assets/images/robot-parts/' + product.imageName;
-  }
-
-  getFilteredProducts() {
-    return this.filter === ''
-    ? this.products
-    : this.products.filter((product) => product.category === this.filter);
-  }
+  // Function to add course
+addCourse(){
+  this.products.push(this.newCourse);
+  //Reset input
+  this.newCourse = '';
+}
 }
