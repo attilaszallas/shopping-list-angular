@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { IProduct } from './product.model';
 
 @Component({
   selector: 'bot-catalog',
@@ -7,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./catalog.component.css']
 })
 export class CatalogComponent {
-  products: string[];
+  products: IProduct[];
   filter: string = '';
   newCourse : string = '';
 
@@ -17,8 +18,17 @@ export class CatalogComponent {
 
   // Function to add course
 addCourse(){
-  this.products.push(this.newCourse);
+  this.products.push({name: this.newCourse, isDone: false});
   //Reset input
   this.newCourse = '';
 }
+
+getDiscountedClasses(product: IProduct){
+  return {strikethrough: product.isDone};
+}
+
+removeProduct(product: IProduct){
+  product.isDone = true;
+}
+
 }

@@ -11,11 +11,11 @@
         <div class="product">
           <div class="product-details">
             <div class="product-info">
-              <div class="name">{{ product }}</div>
+              <div [ngClass]="getDiscountedClasses(product)" class="name">{{ product.name }}</div>
             </div>
           </div>
           <div class="price">
-            <button class="cta">Done</button>
+            <button (click)="removeProduct(product)" class="cta">Done</button>
           </div>
         </div>
       </li>
