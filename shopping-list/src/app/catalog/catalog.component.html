@@ -2,20 +2,20 @@
 
   <div class="product"> 
   <!-- Input field -->
-  <input type="text" id="course" name="course" class="form-control" [(ngModel)]="newCourse">
+  <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElement">
   <!-- Add button -->
-  <button (click)="addCourse()">Add</button>
+  <button (click)="addShoppingElement()">Add</button>
   </div>
     <ul class="products">
       <li class="product-item" *ngFor="let product of products">
         <div class="product">
           <div class="product-details">
             <div class="product-info">
-              <div [ngClass]="getDiscountedClasses(product)" class="name">{{ product.name }}</div>
+              <div [ngClass]="isProductInShoppingCart(product)" class="name">{{ product.name }}</div>
             </div>
           </div>
           <div class="price">
-            <button (click)="removeProduct(product)" class="cta">Done</button>
+            <button (click)="putProductToShoppingCart(product)" class="cta">Done</button>
           </div>
         </div>
       </li>

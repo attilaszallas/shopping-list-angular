@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { IProduct } from './product.model';
 
 @Component({
@@ -10,24 +9,23 @@ import { IProduct } from './product.model';
 export class CatalogComponent {
   products: IProduct[];
   filter: string = '';
-  newCourse : string = '';
+  newElement : string = '';
 
   constructor() {
     this.products = [];
   }
 
-  // Function to add course
-addCourse(){
-  this.products.push({name: this.newCourse, isDone: false});
+addShoppingElement(){
+  this.products.push({name: this.newElement, isDone: false});
   //Reset input
-  this.newCourse = '';
+  this.newElement = '';
 }
 
-getDiscountedClasses(product: IProduct){
+isProductInShoppingCart(product: IProduct){
   return {strikethrough: product.isDone};
 }
 
-removeProduct(product: IProduct){
+putProductToShoppingCart(product: IProduct){
   product.isDone = true;
 }
 
