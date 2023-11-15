@@ -2,9 +2,16 @@
 
   <div class="product"> 
   <!-- Input field -->
-  <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElement">
+  <div class="input">
+    <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElement">
+  </div>
+  <div class="input">
+    <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElementQuantity">
+  </div>
   <!-- Add button -->
-  <button (click)="addShoppingElement()">Add</button>
+    <div class="price">
+      <button (click)="addShoppingElement()" class="cta">Add</button>
+    </div>
   </div>
     <ul class="products">
       <li class="product-item" *ngFor="let product of products">
@@ -13,6 +20,11 @@
             <div class="product-info">
               <div [ngClass]="isProductInShoppingCart(product)" class="name">{{ product.name }}</div>
             </div>
+            <div>
+            </div>
+            <div class="product-no">
+              <div class="price">{{ product.quantity }}</div>
+            </div>
           </div>
           <div class="price">
             <button (click)="putProductToShoppingCart(product)" class="cta">Done</button>
@@ -20,4 +32,8 @@
         </div>
       </li>
     </ul>
+    <!-- Clear All -->
+    <div class="clearall">
+      <button (click)="clearAllProducts()" class="cta">Clear All</button>
+    </div>
   </div>

@@ -10,13 +10,14 @@ export class CatalogComponent {
   products: IProduct[];
   filter: string = '';
   newElement : string = '';
+  newElementQuantity : number = 1;
 
   constructor() {
     this.products = [];
   }
 
 addShoppingElement(){
-  this.products.push({name: this.newElement, isDone: false});
+  this.products.push({name: this.newElement, quantity: this.newElementQuantity, isDone: false});
   //Reset input
   this.newElement = '';
 }
@@ -27,6 +28,10 @@ isProductInShoppingCart(product: IProduct){
 
 putProductToShoppingCart(product: IProduct){
   product.isDone = true;
+}
+
+clearAllProducts(){
+  this.products = [];
 }
 
 }
