@@ -1,39 +1,40 @@
 <div class="container">
-
   <div class="product"> 
   <!-- Input field -->
-  <div class="input">
-    <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElement">
-  </div>
-  <div class="input">
-    <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElementQuantity">
-  </div>
-  <!-- Add button -->
-    <div class="price">
-      <button (click)="addShoppingElement()" class="cta">Add</button>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElement">
+      </div>
+      <div class="col-sm-12 col-md-3 col-lg-3">
+        <input type="text" id="element" name="element" class="form-control" [(ngModel)]="newElementQuantity">
+      </div>
+      <!-- Add button -->
+      <div class="addbutton col-sm-12 col-md-3 col-lg-3">
+        <button class="btn btn-primary" (click)="addShoppingElement()">Add</button>
+      </div>
     </div>
+  </div>
   </div>
     <ul class="products">
       <li class="product-item" *ngFor="let product of products">
         <div class="product">
-          <div class="product-details">
-            <div class="product-info">
-              <div [ngClass]="isProductInShoppingCart(product)" class="name">{{ product.name }}</div>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 col-md-8 col-lg-8">
+                <div [ngClass]="isProductInShoppingCart(product)" class="name">{{ product.name }} ({{ product.quantity }})</div>
+              </div>
+              <!-- Add button -->
+              <div class="addbutton col-sm-12 col-md-4 col-lg-4">
+                <button class="btn btn-primary" (click)="putProductToShoppingCart(product)">Done</button>
+              </div>
             </div>
-            <div>
-            </div>
-            <div class="product-no">
-              <div class="price">{{ product.quantity }}</div>
-            </div>
-          </div>
-          <div class="price">
-            <button (click)="putProductToShoppingCart(product)" class="cta">Done</button>
           </div>
         </div>
       </li>
     </ul>
     <!-- Clear All -->
     <div class="clearall">
-      <button (click)="clearAllProducts()" class="cta">Clear All</button>
+      <button class="btn btn-primary" (click)="clearAllProducts()">Clear All</button>
     </div>
   </div>
